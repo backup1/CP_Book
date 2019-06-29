@@ -2,12 +2,12 @@
 using namespace std;
 
 bool check(int R,int C,vector<vector<int>>& A,int val){
-	vector<vector<bool>> vu(R,vector<bool>(C));
-	queue<pair<int,int>> q;
-	q.emplace(0,0);
-	vu[0][0] = true;
-	while(!q.empty()){
-   	auto p = q.front();
+   vector<vector<bool>> vu(R,vector<bool>(C));
+   queue<pair<int,int>> q;
+   q.emplace(0,0);
+   vu[0][0] = true;
+   while(!q.empty()){
+      auto p = q.front();
       q.pop();
       int x = p.first, y = p.second;
       if(x > 0 and !vu[x-1][y] and A[x-1][y] >= val){
@@ -54,14 +54,14 @@ int maximumMinimumPath(vector<vector<int>>& A){
 }
 
 int main(){
-	int r,c;
-	cin >> r >> c;
-	vector<vector<int>> v(r,vector<int> (c));
-	for (int i=0; i<r; ++i){
-		for (int j=0; j<c; ++j){
-			cin >> v[i][j];
-		}
-	}
-	cout << maximumMinimumPath(v) << '\n';
-	return 0;
+   int r,c;
+   cin >> r >> c;
+   vector<vector<int>> v(r,vector<int> (c));
+   for (int i=0; i<r; ++i){
+      for (int j=0; j<c; ++j){
+         cin >> v[i][j];
+      }
+   }
+   cout << maximumMinimumPath(v) << '\n';
+   return 0;
 }
